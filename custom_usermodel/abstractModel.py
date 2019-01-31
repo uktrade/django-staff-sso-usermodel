@@ -67,6 +67,9 @@ class AbstractUser(DjangoIntegrationMixin, FirstNameMixin, LastNameMixin, EmailA
     def has_usable_password(self, request):
         return False
 
+    def get_short_name(self):
+        return self.first_name + ' ' + self.last_name
+
     class Meta:
         abstract = True
         verbose_name = _('user')
