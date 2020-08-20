@@ -17,11 +17,11 @@ Add the following to your settings file:
 ```
 INSTALLED_APPS=[
     [...]
-    'custom_usermodel',
+    'staff_sso_usermodel',
 ]
 
 # UserModel config
-AUTH_USER_MODEL = 'custom_usermodel.User'
+AUTH_USER_MODEL = 'staff_sso_usermodel.User'
 ```
 
 # Assign Administrative Privilleges(CLI)
@@ -36,7 +36,7 @@ AUTH_USER_MODEL = 'custom_usermodel.User'
  ```
  $python manage.py shell
 
-from custom_usermodel.models import User
+from staff_sso_usermodel.models import User
 
 user = User.objects.get(email='your.sso@login.email.address')
 

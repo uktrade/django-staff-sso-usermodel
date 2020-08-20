@@ -49,7 +49,6 @@ class LastNameMixin(models.Model):
 class EmailAuthMixin(models.Model):
     email = models.EmailField(_('email address'), max_length=254, unique=True)
     EMAIL_FIELD = 'email'
-    USERNAME_FIELD = 'email'
 
     def clean(self):
         super().clean()
@@ -59,8 +58,19 @@ class EmailAuthMixin(models.Model):
         abstract = True
 
 
+class SSOUserIdMixin(models.Model):
+    sso_user_id = models.CharField(_('SSO user id'), blank=True, default='', max_length=36, unique=True)
+    USERNAME_FIELD = 'sso_user_id'
+
+    def get_sso_user_id(self):
+        return self.sso_user_id
+
+    class Meta:
+        abstract = True
+
+
 class AbstractUser(DjangoIntegrationMixin, FirstNameMixin, LastNameMixin, EmailAuthMixin,
-                   PermissionsMixin, AbstractBaseUser):
+                   PermissionsMixin, AbstractBaseUser, SSOUserIdMixin):
     objects = UserManager()
     REQUIRED_FIELDS = ['first_name', 'last_name']
 
