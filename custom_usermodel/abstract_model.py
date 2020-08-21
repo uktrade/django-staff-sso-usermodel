@@ -59,7 +59,7 @@ class EmailAuthMixin(models.Model):
 
 
 class SSOUserIdMixin(models.Model):
-    sso_user_id = models.CharField(_('SSO user id'), blank=True, default='', max_length=36, unique=True)
+    sso_user_id = models.CharField(_('SSO user id'), blank=True, default='', max_length=36)
     USERNAME_FIELD = 'sso_user_id'
 
     def get_sso_user_id(self):
