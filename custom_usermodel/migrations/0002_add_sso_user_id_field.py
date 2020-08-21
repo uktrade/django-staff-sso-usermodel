@@ -4,7 +4,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('staff_sso_usermodel', '0001_initial'),
+        ('custom_usermodel', '0001_initial'),
     ]
 
     operations = [
