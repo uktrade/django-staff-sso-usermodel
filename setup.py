@@ -1,6 +1,6 @@
 import os
 from setuptools import find_packages, setup
-from staff_sso_usermodel import __version__
+from custom_usermodel import __version__
 
 with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
     README = readme.read()
