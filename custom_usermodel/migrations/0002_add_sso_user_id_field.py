@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import migrations, models
 
 
@@ -11,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='User',
             name='sso_user_id',
-            field=models.CharField(blank=True, default='', max_length=36, verbose_name='SSO user id'),
+            field=models.CharField(blank=False, default=str(datetime.now()), max_length=36, unique=True, verbose_name='SSO user id'),
         ),
     ]
